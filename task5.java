@@ -4,11 +4,11 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 public class task5 {
-    static ArrayList<String> name = new ArrayList<>(); // для хранения имен
-    static ArrayList<Integer> count = new ArrayList<>(); // для хранения количества номеров
-    static HashMap<String, String> phoneBook = new HashMap<>(); // телефонная книга
+    static ArrayList<String> name = new ArrayList<>(); // РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РёРјРµРЅ
+    static ArrayList<Integer> count = new ArrayList<>(); // РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РєРѕР»РёС‡РµСЃС‚РІР° РЅРѕРјРµСЂРѕРІ
+    static HashMap<String, String> phoneBook = new HashMap<>(); // С‚РµР»РµС„РѕРЅРЅР°СЏ РєРЅРёРіР°
 
-    // Метод для заполнения телефонной книги
+    // РњРµС‚РѕРґ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ С‚РµР»РµС„РѕРЅРЅРѕР№ РєРЅРёРіРё
     public static void addContact(String fio, String phone) {
         int index = 0;
         if (!phoneBook.containsValue(fio)){
@@ -23,13 +23,13 @@ public class task5 {
         }
     }  
 
-    // Метод для вывода на печать телефонной книги
+    // РњРµС‚РѕРґ РґР»СЏ РІС‹РІРѕРґР° РЅР° РїРµС‡Р°С‚СЊ С‚РµР»РµС„РѕРЅРЅРѕР№ РєРЅРёРіРё
     public static void printContact(){
-        ArrayList<Integer> name1 = new ArrayList<>(); // создаем вспомогательный список
+        ArrayList<Integer> name1 = new ArrayList<>(); // СЃРѕР·РґР°РµРј РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Р№ СЃРїРёСЃРѕРє
         for (int i = 0; i < name.size(); i++) {
             name1.add(i);
         }
-        Collections.sort(name1, new Comparator<Integer>(){
+        Collections.sort(name1, new Comparator<Integer>(){ // СЃРѕСЂС‚РёСЂСѓРµРј РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ РЅРѕРјРµСЂРѕРІ
             @Override
             public int compare(Integer o1, Integer o2) {
                 return -1 * (count.get(o1) - count.get(o2));
@@ -39,7 +39,7 @@ public class task5 {
         for (int index : name1) {
             for (String key : phoneBook.keySet()) {
                 if (phoneBook.get(key).equals(name.get(index))){
-                    System.out.println(phoneBook.get(key) + ", номер телефона: " + key);
+                    System.out.println(phoneBook.get(key) + ", РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°: " + key);
                 }
                 
             }
@@ -49,13 +49,13 @@ public class task5 {
     }
         
     public static void main(String[] args) {
-        addContact("Иванов И.И.", "123456789");
-        addContact("Петров П.П.", "987654321");
-        addContact("Сидоров С.С.", "135797531");
-        addContact("Иванов И.И.", "246886420");
-        addContact("Иванов И.И.", "123789456");
-        addContact("Сидоров С.С.", "456123789");
-        addContact("Васечкин В.В.", "123010121");
+        addContact("РРІР°РЅРѕРІ Р.Р.", "123456789");
+        addContact("РџРµС‚СЂРѕРІ Рџ.Рџ.", "987654321");
+        addContact("РЎРёРґРѕСЂРѕРІ РЎ.РЎ.", "135797531");
+        addContact("РРІР°РЅРѕРІ Р.Р.", "246886420");
+        addContact("РРІР°РЅРѕРІ Р.Р.", "123789456");
+        addContact("РЎРёРґРѕСЂРѕРІ РЎ.РЎ.", "456123789");
+        addContact("Р’Р°СЃРµС‡РєРёРЅ Р’.Р’.", "123010121");
         printContact();
     }   
 }   
